@@ -31,7 +31,7 @@ for i=1:size(Initial_countries)
     
 end
 
-[Initial_cost,ind]= sort(Initial_cost);     % did non dominated sorting to get best population with diversty
+[final_cost,ind,Solutions]= sort(Initial_cost);     % did non dominated sorting to get best population with diversty
 Initial_countries = Initial_countries(ind,:); 
 
 [Empires,n] = createInitialEmpires(ica,Initial_countries,Initial_cost);
