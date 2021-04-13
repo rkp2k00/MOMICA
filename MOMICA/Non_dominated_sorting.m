@@ -1,9 +1,8 @@
-function [Front,sort_ind,Solutions]= Non_dominated_sorting(Initial_cost)
+function [Front,s,Solutions]= Non_dominated_sorting(Initial_cost,ica)
  
- sort_ind=1;
- Front(1).pts=[];
+ Front(1).pts=[]; 
  k=0;
- for i=1:length(Initial_cost)
+ for i=1:ica.no_of_countries
      
      p= Initial_cost(i,:);
      Solutions(i).dominated_by_p=[0];
@@ -53,7 +52,8 @@ function [Front,sort_ind,Solutions]= Non_dominated_sorting(Initial_cost)
      i=i+1;
      
  end
- 
+ %%%%% crowded distance algorithm
+
  for i=1:(length(Front)-1)
      a=Front(i).pts(:,3);
      for j=1:length(a)
@@ -82,9 +82,25 @@ function [Front,sort_ind,Solutions]= Non_dominated_sorting(Initial_cost)
          Solutions(c_1(i)).crowded_distance= Solutions(c_1(i)).crowded_distance + (Solutions(c_1(i+1)).f_value(1)-Solutions(c_1(i-1)).f_value(1))/(b_1(length(a)-1)-b_1(1));
      end
      for i=2:length(a)-1
-         Solutions(c_2(i)).crowded_distance= Solutions(c_2(i)).crowded_distance + (Solutions(c_2(i+1)).f_value(1)-Solutions(c_2(i-1)).f_value(1))/(b_2(length(a)-1)-b_2(1));
+         Solutions(c_2(i)).crowded_distance= Solutions(c_2(i)).crowded_distance + (Solutions(c_2(i+1)).f_value(2)-Solutions(c_2(i-1)).f_value(2))/(b_2(length(a)-1)-b_2(1));
      end
-     
  end
  
+ %%%% to find out the sort_ind using crowded binary selection operator;
+ 
+ current_index=0;
+ s=[];
+ for i=1:length(Front)-1
+   
+     a=Front(i).pts(:,3);
+     for j=1:length(a)
+         Front(i).pts(j,4)=Solutions(a(j)).crowded_distance;
+     end
+     [Front(i).pts(:,4),s_ind]=sort(Front(i).pts(:,4));
+     for k=1:length(a)
+         s(k+current_index,1) = Front(i).pts(s_ind(k,1),3);
+     end
+     current_index=current_index+length(a);
+ end
+  
 end
