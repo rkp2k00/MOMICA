@@ -1,2 +1,2 @@
-# MultiObjective-Optimization-using-various-Evolutionary-Algorithms-for-Engineering-Design-Problem
-Initially using Modified Multi-Objective Imperialistic competetive Algorithm Evolutionary Algorithm, one among the metaheuristic approach in Applied Mechanics and Engineering.
+# MultiObjective-Optimization-using-modified-Imperialistic-competetive-algorithm-for-Engineering-Design-Problem
+Initially creating Modified Imperialistic Competitive Algorithm [ EA ], one among the metaheuristic approach for Mechanical Design problem by using Attraction and repulsion assimilation process with SBX crossover operator and polynomial mutation to get better solutions by improving the diversity of the solutions as well as converging solutions at the global optimum level.
