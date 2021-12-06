@@ -1,2 +1,2 @@
-# MultiObjective-Optimization-using-modified-Imperialistic-competetive-algorithm-for-Engineering-Design-Problem
+# MultiObjective-Optimization-using-modified-Imperialistic-competetive-algorithm-for-Multi-Criteria-Engineering-Design-Problem
 Initially creating Modified Imperialistic Competitive Algorithm [ EA ], one among the metaheuristic approach for Mechanical Design problem by using Attraction and repulsion assimilation process with SBX crossover operator and polynomial mutation to get better solutions by improving the diversity of the solutions as well as converging solutions at the global optimum level.
